@@ -1,0 +1,3 @@
+insert into users (ID, username, password, first_name, last_name, email) VALUES (uuid_generate_v4(), 'nate', '123', "Nate", "Woodbury", "nxte01@gmail.com");
+insert into users (ID, username, password, first_name, last_name, email) VALUES (uuid_generate_v4(), 'caroline', '123', "Caroline", "Prokova", "carolineprokova@gmail.com");
+--insert into messages (ID, message, author, read, recipient) VALUES (uuid_generate_v4(), 'I love you everyone', 'caroline', false, 'josh');
