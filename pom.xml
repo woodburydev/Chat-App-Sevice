@@ -8,10 +8,10 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.codeforgeyt</groupId>
-	<artifactId>ws-chat-application</artifactId>
+	<groupId>woodburydev</groupId>
+	<artifactId>chat-application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ws-chat-application</name>
+	<name>chat-application</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
