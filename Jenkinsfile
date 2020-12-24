@@ -7,7 +7,7 @@ pipeline {
 
 
    stages {
-      stage('Build') {
+      stage('Build Jar') {
          steps {
             // Get some code from a GitHub repository
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
@@ -25,11 +25,12 @@ pipeline {
             }
          }
       }
-      stage("Test") {
+
+      stage("Build Container") {
         steps {
-
-        sh "sudo mvn test"
-
+            sh "docker build . -t chat-application"
+            sh "docker tag chat-application:latest 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
+            sh "docker push 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
         }
       }
    }
