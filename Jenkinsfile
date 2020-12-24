@@ -8,10 +8,8 @@ pipeline {
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
 
             // Run Maven
-            sh "sudo ./mvnw -Dmaven.test.failure.ignore=true clean package"
+            sh "sudo mvn clean package -D maven.test.failure.ignore=true "
 
-            // To run Maven on a Windows agent, use
-            // bat "mvn -Dmaven.test.failure.ignore=true clean package"
          }
 
          post {
@@ -22,6 +20,13 @@ pipeline {
                archiveArtifacts 'target/*.jar'
             }
          }
+      }
+      stage("Test") {
+        steps {
+
+        sh "mvn test"
+
+        }
       }
    }
 }
