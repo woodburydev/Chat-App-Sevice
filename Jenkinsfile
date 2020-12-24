@@ -8,10 +8,6 @@ pipeline {
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
 
             // Run Maven
-            sh "whoami"
-
-            sh "git add --chmod=+x mvnw"
-
             sh "sudo ./mvnw -Dmaven.test.failure.ignore=true clean package"
 
             // To run Maven on a Windows agent, use
