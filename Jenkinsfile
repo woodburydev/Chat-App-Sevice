@@ -10,6 +10,12 @@ pipeline {
 
 
    stages {
+   // Examine Environment
+   // Build
+   // Remove Build in case fail
+   // Run Tests
+   // build & tag
+   // push to ecr
       stage('Build Jar') {
          steps {
             // Get some code from a GitHub repository
@@ -31,9 +37,9 @@ pipeline {
 
       stage("Build Container") {
         steps {
-            sh "docker build . -t chat-application"
-            sh "docker tag chat-application:latest 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
+            sh "docker build . -t chat-application:latest 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
             sh "docker push 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
+            sh "aws ecs update-service --force-new-deployment --service chat-app-service --cluster nate"
         }
       }
    }
