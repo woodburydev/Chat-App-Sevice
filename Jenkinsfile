@@ -5,10 +5,13 @@ pipeline {
       stage('Build') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/woodburydev/Chat-App-Sevice.git'
+            git --chmod=+x  'https://github.com/woodburydev/Chat-App-Sevice.git'
 
+            whoami
+
+            git add --chmod=+x "./mvnw"
             // Run Maven on a Unix agent.
-            sh "sudo -S ./mvnw -Dmaven.test.failure.ignore=true clean package"
+            sh "./mvnw -Dmaven.test.failure.ignore=true clean package"
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
