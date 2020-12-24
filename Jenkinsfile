@@ -8,7 +8,7 @@ pipeline {
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
 
             // Run Maven on a Unix agent.
-            sh "./mvnw -Dmaven.test.failure.ignore=true clean package"
+            sh "sudo ./mvnw -Dmaven.test.failure.ignore=true clean package"
 
             // To run Maven on a Windows agent, use
             // bat "mvn -Dmaven.test.failure.ignore=true clean package"
