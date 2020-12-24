@@ -8,6 +8,8 @@ pipeline {
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
 
             // Run Maven
+            export M2_HOME=/Users/natew/Development/apache-maven-3.6.3
+            export PATH=$PATH:$M2_HOME/bin
             sh "sudo mvn clean package -D maven.test.failure.ignore=true "
 
          }
