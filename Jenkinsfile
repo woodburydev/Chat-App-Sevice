@@ -8,9 +8,9 @@ pipeline {
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
 
             // Run Maven
-            whoami
+            sh "whoami"
 
-            git add --chmod=+x "mvnw"
+            sh "git add --chmod=+x mvnw"
 
             sh "sudo ./mvnw -Dmaven.test.failure.ignore=true clean package"
 
