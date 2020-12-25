@@ -1,0 +1,18 @@
+create table if not exists messages(
+    ID uuid primary key not null,
+    message varchar(500) not null,
+    recipient varchar(100) not null,
+    read boolean not null,
+    timestamp timestamp with time zone not null,
+    author varchar(100) not null
+);
+
+create table if not exists users (
+    ID uuid primary key not null,
+    username varchar(100) not null,
+    password varchar(200) not null,
+    first_name varchar(100) not null,
+    last_name varchar(100) not null,
+    email varchar(100) not null,
+    last_request timestamp with time zone not null
+);

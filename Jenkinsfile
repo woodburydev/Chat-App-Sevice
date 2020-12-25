@@ -3,9 +3,6 @@ pipeline {
 
     environment {
         PATH = "/usr/local/bin:$PATH"
-        AWS_SECRET_ACCESS_KEY=credentials("AWS_SECRET_ACCESS_KEY")
-        AWS_ACCESS_KEY_ID=credentials("AWS_ACCESS_KEY_ID")
-        AWS_DEFAULT_REGION=credentials("AWS_DEFAULT_REGION")
     }
 
 
@@ -37,8 +34,8 @@ pipeline {
 
       stage("Build Container") {
         steps {
-            sh "docker build . -t chat-application:latest 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
-            sh "docker push 006256127606.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
+            sh "docker build . -t 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
+            sh "docker push 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
             sh "aws ecs update-service --force-new-deployment --service chat-app-service --cluster nate"
         }
       }

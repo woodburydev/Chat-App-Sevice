@@ -81,11 +81,6 @@
 			<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
-				<configuration>
-					<url>jdbc:postgresql://localhost:5432/chatapp</url>
-					<user>postgres</user>
-					<password>postgres</password>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
