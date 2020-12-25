@@ -36,7 +36,7 @@ pipeline {
         steps {
             sh "docker build . -t 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
             sh "docker push 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
-            sh "aws ecs update-service --force-new-deployment --service chat-application-service --cluster nate"
+            sh "aws ecs update-service --force-new-deployment --service chat-application-service --cluster chat-application"
         }
       }
    }
