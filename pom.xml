@@ -11,7 +11,7 @@
 	<groupId>woodburydev</groupId>
 	<artifactId>chat-application</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>chat-asd</name>
+	<name>chat-application</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
