@@ -58,12 +58,12 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .cors();
         // adding a filter BEFORE the username and password authentication filter
             http.authenticationProvider(authProvider);
             http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
-            http.cors();
 
     }
 
@@ -77,7 +77,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedOrigins(Arrays.asList("http://woodburydev-chat-application.herokuapp.com"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

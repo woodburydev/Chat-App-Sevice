@@ -12,7 +12,6 @@ import java.util.UUID;
 
 @RestController()
 @RequestMapping("/chat")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ChatController {
 
     @Autowired
