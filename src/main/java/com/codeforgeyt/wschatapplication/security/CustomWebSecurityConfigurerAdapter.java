@@ -50,10 +50,10 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/user/login"  ).permitAll()
+        http.csrf().disable().authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/user/login"  ).permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers("/user/register").permitAll()
+                .antMatchers(HttpMethod.POST, "/user/register").permitAll()
                 .antMatchers("/chat").permitAll()
                 .anyRequest().authenticated()
                 .and()
