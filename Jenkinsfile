@@ -3,9 +3,9 @@ pipeline {
 
     environment {
         PATH = "/usr/local/bin:$PATH"
-        M2_HOME=/usr/local/apache-maven
-        M2=$M2_HOME/bin
-        PATH=$M2:$PATH
+        M2_HOME="/usr/local/apache-maven"
+        M2="$M2_HOME/bin"
+        PATH="$M2:$PATH"
     }
 
 
