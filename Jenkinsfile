@@ -20,7 +20,6 @@ pipeline {
             // Get some code from a GitHub repository
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
             // Run Maven
-            sh "whoami"
             sh "mvn clean package -D maven.test.failure.ignore=true "
 
          }
@@ -38,6 +37,7 @@ pipeline {
       stage("Build Container") {
         steps {
             sh "docker build . -t 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
+            sh "aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 006256127606.dkr.ecr.us-west-1.amazonaws.com"
             sh "docker push 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
             sh "aws ecs update-service --force-new-deployment --service chat-application-service --cluster chat-application"
         }
