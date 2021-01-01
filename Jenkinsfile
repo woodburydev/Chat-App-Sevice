@@ -5,6 +5,9 @@ pipeline {
         M2_HOME="/usr/local/apache-maven"
         M2="$M2_HOME/bin"
         PATH="$M2:$PATH"
+        AWS_SECRET_ACCESS_KEY=4rDREaKtvfG0OTOnuesYuD+1Kgvhw5G4sYmQWv4k
+        AWS_ACCESS_KEY_ID=AKIAUNEWDFPB4E5VMLWT
+        AWS_DEFAULT_REGION=us-west-1
     }
 
 
