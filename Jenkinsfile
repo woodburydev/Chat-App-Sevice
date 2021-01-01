@@ -38,9 +38,8 @@ pipeline {
       stage("Build Container") {
         steps {
             sh "docker build . -t 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
-            sh "(aws ecr get-login --region us-east-1)"
             sh "docker push 303109974979.dkr.ecr.us-west-1.amazonaws.com/chat-application:latest"
-            sh "/usr/local/bin/aws ecs update-service --force-new-deployment --service chat-application-service --cluster chat-application"
+            sh "aws ecs update-service --force-new-deployment --service chat-application-service --cluster chat-application"
         }
       }
    }
