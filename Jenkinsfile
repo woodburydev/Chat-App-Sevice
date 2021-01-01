@@ -20,6 +20,7 @@ pipeline {
             // Get some code from a GitHub repository
             git 'https://github.com/woodburydev/Chat-App-Sevice.git'
             // Run Maven
+            sh "whoami"
             sh "mvn clean package -D maven.test.failure.ignore=true "
 
          }
