@@ -53,6 +53,7 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
         http.csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/user/login"  ).permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.POST, "/user/register").permitAll()
                 .antMatchers("/chat").permitAll()
                 .anyRequest().authenticated()
